@@ -36,7 +36,7 @@
 --   $ ./dk0 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=$PWD/target/my-wenv toolchain=CommonsLang_OCaml.Toolchain.W64devkit@5.4.1
 --
 --   (local overrides)
---   $ ./dk0 -I etc/dk/v --trust-local-package CommonsLang_OCaml --trust-local-package CommonsBase_GNU --trust-local-package CommonsBase_Win32 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=target/my-wenv
+--   $ ./dk0 -I etc/dk/v -x commonsbase-gnu:subpath: -x commonsbase-std:subpath: --trust-local-package CommonsLang_OCaml --trust-local-package CommonsBase_GNU --trust-local-package CommonsBase_Std --trust-local-package CommonsBase_Win32 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=target/my-wenv
 --   $ target/my-wenv/bin/enter cmd.exe
 --
 -- FAQ:

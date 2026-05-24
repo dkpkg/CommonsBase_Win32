@@ -13,3 +13,7 @@ The core package targets in this repository are:
 
 This repository was bootstrapped from legacy package definitions copied into
 `etc\dk\v`.
+
+Local validation also expects sibling checkouts of `CommonsBase_GNU` and
+`CommonsBase_Std` so the test comments can import their package definitions
+instead of pretending they are local.
