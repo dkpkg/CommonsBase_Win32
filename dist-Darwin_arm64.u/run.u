@@ -1,0 +1,13 @@
+Distribution for Darwin arm64 CommonsBase_Win32
+
+## Wenv examples
+
+Use `run-rule`, not `run`:
+
+```sh
+./dk0 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=$PWD/target/my-wenv
+target/my-wenv/bin/enter cmd.exe
+
+./dk0 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=$PWD/target/my-wenv "mount[]=type=bind,src=$PWD,dst=M:/project"
+./dk0 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=$PWD/target/my-wenv toolchain=CommonsBase_GNU.Toolchain.W64dev@2.5.0
+```

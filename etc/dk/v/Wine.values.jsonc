@@ -266,11 +266,11 @@
                     [
                         "$(get-object CommonsBase_GNU.Awk@5.3.1 -s Release.execution_abi -d : -e 'bin/*')${/}bin/gawk",
                         "-v", "OUTPUT_FILE=${SLOT.request}/bin/enter-wine.sh",
-                        "-v", "GNUTLS_LIBDIR=$(--path=absnative get-object CommonsBase_GNU.TLS@3.8.12 -s $(get-asset CommonsBase_Win32.Lookup@1.0.0 -p winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib",
-                        "-v", "INOTIFY_LIBDIR=$(--path=absnative get-object NotMatveevKondratyev_Libinotify.Kqueue@0.20240724.0 -s $(get-asset CommonsBase_Win32.Lookup@1.0.0 -p winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib",
-                        "-v", "KRB5_LIBDIR=$(--path=absnative get-object NotMitEdu_Kerberos.V5@1.22.2 -s $(get-asset CommonsBase_Win32.Lookup@1.0.0 -p winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib",
-                        "-f", "$(get-asset CommonsBase_Win32.Lookup@1.0.0 -p enter-wine-mk.awk -f enter-wine-mk.awk)",
-                        "$(get-asset CommonsBase_Win32.Lookup@1.0.0 -p enter-wine.in.sh -f enter-wine.sh)"
+                        "-v", "GNUTLS_LIBDIR=$(--path=absnative get-object CommonsBase_GNU.TLS@3.8.12 -s $(get-asset CommonsBase_Win32.Apparatus.WineRunLibSlotTable@1.0.0 -p assets/table/winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib",
+                        "-v", "INOTIFY_LIBDIR=$(--path=absnative get-object NotMatveevKondratyev_Libinotify.Kqueue@0.20240724.0 -s $(get-asset CommonsBase_Win32.Apparatus.WineRunLibSlotTable@1.0.0 -p assets/table/winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib",
+                        "-v", "KRB5_LIBDIR=$(--path=absnative get-object NotMitEdu_Kerberos.V5@1.22.2 -s $(get-asset CommonsBase_Win32.Apparatus.WineRunLibSlotTable@1.0.0 -p assets/table/winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib",
+                        "-f", "$(get-asset CommonsBase_Win32.Apparatus.Scripts@1.0.0 -p assets/s -m ./enter-wine-mk.awk -f enter-wine-mk.awk)",
+                        "$(get-asset CommonsBase_Win32.Apparatus.Scripts@1.0.0 -p assets/s -m ./enter-wine.in.sh -f enter-wine.sh)"
                     ]
                 ]
             },

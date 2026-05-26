@@ -29,15 +29,7 @@
 --     It is undefined what happens when the 'dst' mount paths overlap. Don't do it!
 --
 -- EXAMPLES:
---   $ ./dk0 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=$PWD/target/my-wenv
---   $ target/my-wenv/bin/enter cmd.exe
--- 
---   $ ./dk0 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=$PWD/target/my-wenv "mount[]=type=bind,src=$PWD,dst=M:/project"
---   $ ./dk0 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=$PWD/target/my-wenv toolchain=CommonsLang_OCaml.Toolchain.W64devkit@5.4.1
---
---   (local overrides)
---   $ ./dk0 -I etc/dk/v -x commonsbase-gnu:subpath: -x commonsbase-std:subpath: --trust-local-package CommonsLang_OCaml --trust-local-package CommonsBase_GNU --trust-local-package CommonsBase_Std --trust-local-package CommonsBase_Win32 run-rule CommonsBase_Win32.Wenv.Create@0.1.0 dir=target/my-wenv
---   $ target/my-wenv/bin/enter cmd.exe
+--   See dist-Darwin_arm64.u/run.u for run-rule examples.
 --
 -- FAQ:
 --
@@ -54,7 +46,7 @@
 -- Linux, which is far better supported by Wine, should be an easy addition if someone wants to do it.
 --
 -- Q3: Toolchains?
--- The `toolchain=` parameter defaults to CommonsLang_OCaml.Toolchain.W64devkit@5.4.1
+-- The `toolchain=` parameter defaults to CommonsBase_GNU.Toolchain.W64dev@2.5.0
 -- but can be set to any compatible toolchain package that exposes a Windows_x86_64
 -- toolchain object for the current execution ABI.
 --
@@ -89,16 +81,16 @@ function uirules.Create(command, request)
         p.wenv = assert(request.user.dir, "Expected `dir=WENV` on the command line")
         assert(CommonsBase_Win32__Wenv__0_1_0.validate_absolutepath("The `dir=WENV` command line argument", p.wenv))
         p.mounts = request.user.mount or {}
-        p.toolchain = request.user.toolchain or "CommonsLang_OCaml.Toolchain.W64devkit@5.4.1"
+        p.toolchain = request.user.toolchain or "CommonsBase_GNU.Toolchain.W64dev@2.5.0"
         p.outputid = "CommonsBase_Win32.Wenv.Instance." .. request.rule.generatesymbol() .. "@0.1.0"
         p.fdexe = "$(get-object CommonsBase_Std.Fd@10.3.0 -s Release.execution_abi -m ./fd.exe -e '*' -f fd.exe)"
-        p.coreutilsexe = "$(get-object CommonsBase_Std.Coreutils@0.2.2 -s Release.execution_abi -m ./coreutils.exe -e '*' -f coreutils.exe)"
+        p.coreutilsexe = "$(get-object CommonsBase_Std.Coreutils@0.6.0 -s Release.execution_abi -m ./coreutils.exe -e '*' -f coreutils.exe)"
         p.winehome = "$(--path=absnative get-object CommonsBase_Win32.Wine@11.2.0 -s ${SLOTNAME.Release.execution_abi} -d : -e 'bin/*' -e 'lib/wine/*/*')"
         p.enterwine = p.winehome .. "${/}bin${/}enter-wine.sh"
         p.gawkexe = "$(get-object CommonsBase_GNU.Awk@5.3.1 -s Release.execution_abi -d : -e 'bin/*')${/}bin/gawk"
-        p.gnutlslib = "$(--path=absnative get-object CommonsBase_GNU.TLS@3.8.12 -s $(get-asset CommonsBase_Win32.Lookup@1.0.0 -p winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib"
-        p.inotifylib = "$(--path=absnative get-object NotMatveevKondratyev_Libinotify.Kqueue@0.20240724.0 -s $(get-asset CommonsBase_Win32.Lookup@1.0.0 -p winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib"
-        p.krb5lib = "$(--path=absnative get-object NotMitEdu_Kerberos.V5@1.22.2 -s $(get-asset CommonsBase_Win32.Lookup@1.0.0 -p winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib"
+        p.gnutlslib = "$(--path=absnative get-object CommonsBase_GNU.TLS@3.8.12 -s $(get-asset CommonsBase_Win32.Apparatus.WineRunLibSlotTable@1.0.0 -p assets/table/winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib"
+        p.inotifylib = "$(--path=absnative get-object NotMatveevKondratyev_Libinotify.Kqueue@0.20240724.0 -s $(get-asset CommonsBase_Win32.Apparatus.WineRunLibSlotTable@1.0.0 -p assets/table/winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib"
+        p.krb5lib = "$(--path=absnative get-object NotMitEdu_Kerberos.V5@1.22.2 -s $(get-asset CommonsBase_Win32.Apparatus.WineRunLibSlotTable@1.0.0 -p assets/table/winerunlib-slot -m ./${SLOTNAME.Release.execution_abi}) -d :)${/}lib"
 
         local commands = {
             -- Do wineboot --init
@@ -110,7 +102,7 @@ function uirules.Create(command, request)
             -- Wait until the wineserver process has exited to avoid race conditions modifying the wine prefix
             {
                 "/bin/sh",
-                "$(get-asset CommonsLang_OCaml.Lookup@1.0.0 -p s -m ./wait-wineserver.sh -f wait-wineserver.sh)"
+                "$(get-asset CommonsBase_Win32.Apparatus.Scripts@1.0.0 -p assets/s -m ./wait-wineserver.sh -f wait-wineserver.sh)"
             },
 
             -- Place the selected toolchain package in the wenv at C:\opt\toolchain
@@ -128,7 +120,7 @@ function uirules.Create(command, request)
             {
                 p.coreutilsexe,
                 "cp",
-                "$(get-asset CommonsLang_OCaml.Lookup@1.0.0 -p s -m ./cygpath-winepath.cmd -f cygpath.cmd)",
+                "$(get-asset CommonsBase_Win32.Apparatus.Scripts@1.0.0 -p assets/s -m ./cygpath-winepath.cmd -f cygpath.cmd)",
                 p.wenv .. "/drive_c/opt/cygpath/"
             },
 
@@ -170,15 +162,10 @@ function uirules.Create(command, request)
                 "-v", "INOTIFY_LIBDIR=" .. p.inotifylib,
                 "-v", "KRB5_LIBDIR=" .. p.krb5lib,
 
-                -- temporary until rebuilt
-                -- "-f", "$(get-asset CommonsLang_OCaml.Lookup@1.0.0 -p s -m ./enter-wenv-mk.awk -f enter-wenv-mk.awk)",
-                "'{ gsub(/@WINEPREFIX@/, WINEPREFIX); gsub(/@WINEHOME@/, WINEHOME); gsub(/@GNUTLS_LIBDIR@/, GNUTLS_LIBDIR); gsub(/@INOTIFY_LIBDIR@/, INOTIFY_LIBDIR); gsub(/@KRB5_LIBDIR@/, KRB5_LIBDIR); print $0 > OUTPUT_FILE; }'",
-
-                "$(get-asset CommonsLang_OCaml.Lookup@1.0.0 -p s -m ./enter-wenv.in.sh -f enter-wenv.sh)"
+                "-f", "$(get-asset CommonsBase_Win32.Apparatus.Scripts@1.0.0 -p assets/s -m ./enter-wenv-mk.awk -f enter-wenv-mk.awk)",
+                "$(get-asset CommonsBase_Win32.Apparatus.Scripts@1.0.0 -p assets/s -m ./enter-wenv.in.sh -f enter-wenv.sh)"
             },
-            --   until we upgrade past coreutils 0.2.2, we have to search for chmod on PATH.
-            -- { p.coreutilsexe, "chmod", "+x", p.wenv .. "/bin/enter" },
-            { p.coreutilsexe, "env", "chmod", "+x", p.wenv .. "/bin/enter" },
+            { p.coreutilsexe, "chmod", "+x", p.wenv .. "/bin/enter" },
 
             -- create a zero-byte output file (at least one output file is needed for a dk0 function)
             { p.coreutilsexe, "truncate", "--size=0", "${SLOT.request}/.complete" }
@@ -335,12 +322,14 @@ end
 
 -- get the parent directory of a Unix path (ex. path/in/wenv -> path/in)
 function CommonsBase_Win32__Wenv__0_1_0.unix_parent_dir(path)
-    local sep_start, sep_end = string.find(path, "/", 1, true)
-    if sep_start then
-        return string.sub(path, 1, sep_start - 1)
-    else
-        return ""
+    local len = string.len(path)
+    while len >= 1 do
+        if string.sub(path, len, len) == "/" then
+            return string.sub(path, 1, len - 1)
+        end
+        len = len - 1
     end
+    return ""
 end
 
 function CommonsBase_Win32__Wenv__0_1_0.validate_absolutepath(what, path)
