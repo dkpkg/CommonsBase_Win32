@@ -1,1 +1,16 @@
 ## workspace
+
+### CommonsBase_Win32.Apparatus@1.0.0
+
+  % unified.asset { name="Scripts", dir="assets/s" }
+  'asset'
+  '5043'
+  { 'sha256:1bd86fbf13d569013d29dc0c2a03f8c16a3f73d1db593bc0b300939ebca35522' }
+  % unified.asset { name="WineSlotTable", dir="assets/table/wine-slot" }
+  'asset'
+  '2240'
+  { 'sha256:6463e5dcbd69b743efe8a6d25736e33f1c8b72f21f7ea5fb13dd33c8e5614212' }
+  % unified.asset { name="WineRunLibSlotTable", dir="assets/table/winerunlib-slot" }
+  'asset'
+  '1909'
+  { 'sha256:873d8e9fa4aa2cafe88358858b6e912b2556a1c06c90cc2074829559f0155b4f' }
