@@ -9,12 +9,12 @@
         "origins": [
           {
             "name": "commons-base-win32-table",
-            "mirrors": ["cell://dk0/etc/dk/v/CommonsBase_Win32/table"]
+            "mirrors": ["cell://dk0/etc/dk/v/table"]
           },
           {
             "name": "commons-base-win32-scripts",
             "mirrors": [
-              "cell://dk0/etc/dk/v/CommonsBase_Win32/s"
+              "cell://dk0/etc/dk/v/s"
             ]
           }
         ]
@@ -47,9 +47,9 @@
         {
           "path": "enter-wine-mk.awk",
           "origin": "commons-base-win32-scripts",
-          "size": 162,
+          "size": 167,
           "checksum": {
-            "sha256": "64db0154f677049e8153ae89841a0d7de9de1f8222291247dc594369986d993a"
+            "sha256": "39e13513149b5e0447def735c270d8e63488ee2331544e177e10be95dc17cdfc"
           }
         }
       ]
