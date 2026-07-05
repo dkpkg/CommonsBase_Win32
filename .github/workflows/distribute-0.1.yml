@@ -1,7 +1,7 @@
 on:
   push:
     tags:
-      - '2.5.*' # secrets are tied to version 2.5
+      - '0.1.*' # secrets are tied to version 0.1
   workflow_dispatch: # allow manual triggering from GitHub page
 
 jobs:
@@ -19,15 +19,14 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Distribute Modules
-        uses: diskuv/dk-distribute@v2
+        uses: diskuv/dk-distribute@v3
         with:
-          pubkey: ${{ secrets.distribute_2_5_pubkey }}
-          seckey: ${{ secrets.distribute_2_5_seckey }}
+          pubkey: ${{ secrets.distribute_0_1_pubkey }}
+          seckey: ${{ secrets.distribute_0_1_seckey }}
           options: -nosysinc
-          use-cache: true
-          distscript: etc/dk/v/dist-macos/run.t
+          store: release
+          distscript: dist/macos.u
           execution-abi: Darwin_arm64
-          experimental-dk-owner: ${{ github.repository_owner == 'dkpkg' && 'diskuv' || github.repository_owner }}
           experimental-mlfront-ref: ${{ github.ref_type != 'tag' && 'HEAD' }}
 
   combine:
@@ -47,7 +46,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Combine Modules
-        uses: diskuv/dk-distribute/combine@v2
+        uses: diskuv/dk-distribute/combine@v3
 
       - name: Attest
         id: attest
