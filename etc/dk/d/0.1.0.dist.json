@@ -1,0 +1,32 @@
+{
+  "continuations": {
+    "attestation": {
+      "openbsd_signify": {
+        "signature": "untrusted comment: signed by key 9054b16f0f808491\nRWSQVLFvD4CEkRv39Ve84ob1nkzeMKEZQ8sQ/q1lhbLayqbYovQglJusjkiFG9mSjOLP2PedMZ6fcNlpS1big8TPkWIKaRiEmQw=\n"
+      }
+    },
+    "continuations_to_sign": {
+      "0.2": {
+        "application": { "name": "dk0", "version": "2.4.2+rev-245" },
+        "openbsd_signify": {
+          "public_key": "untrusted comment: CommonsBase_Win32-0.2\nRWSU5lkOzV6VqDa7NVsxOlbsGBrKYAyyU1rSHIO5yIeQSQqplyah1raX\n"
+        }
+      },
+      "1.0": {
+        "application": { "name": "dk0", "version": "2.4.2+rev-245" },
+        "openbsd_signify": {
+          "public_key": "untrusted comment: CommonsBase_Win32-1.0\nRWS0JXlZjAsALKtpLo5svBJJfH3fZw/liRy/1Mdwu44S/Et25FKNhRye\n"
+        }
+      }
+    }
+  },
+  "id": "CommonsBase_Win32@0.1.0",
+  "license": { "spdx": "Apache-2.0" },
+  "producer": {
+    "application": { "name": "dk0", "version": "2.4.2+rev-245" },
+    "github_slsa_v1_l2": { "repository": "dkpkg/CommonsBase_Win32" },
+    "openbsd_signify": {
+      "public_key": "untrusted comment: CommonsBase_Win32-0.1\nRWSQVLFvD4CEkfNpwNy8LGGtGl2LvFAsbf0iCHY9A4CPPyy4hZk7VVjj\n"
+    }
+  }
+}
