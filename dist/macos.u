@@ -13,6 +13,7 @@ Distribution for CommonsBase_Win32
 --- Objects and Assets ---
 
   $ get-object CommonsBase_Win32.Wine@11.2.0 -s Release.Darwin_x86_64 -f ${RUNTIME}/Darwin_x86_64-Wine-11.2.0.zip
-  $ get-object CommonsBase_Win32.Wine@11.2.0 -s Release.Darwin_arm64 -f ${RUNTIME}/Darwin_arm64-Wine-11.2.0.zip
+  \test(pass)
+  \dk.object(abi: "Release.Darwin_x86_64", value-id: "ontxxd7moc26t65yvki6zdnoz3rlaift334mcov6koxhee6ukd7iq")\;
 
 ```
