@@ -1,3 +1,20 @@
+# CommonsBase_Win32
+
+## Overview
+
+Wine 11.2-based Windows support components for dk workspaces, with a Diskuv `Wenv` wrapper for entering Wine-backed Windows build environments on Unix.
+
+`CommonsBase_Win32` ships three primary targets: `Wine.Bundle@11.2.0`
+(the upstream Wine source), `Wine@11.2.0` (the cross-built Wine
+toolchain), and `Wenv@0.1.0` (a rule that creates a Windows build
+environment and its `bin/enter` launcher). The bundled `wait-wineserver.sh`
+helper is derived from the ISC-licensed msvc-wine project; the other
+wrapper scripts and rules are Diskuv-authored.
+
+## License
+
+Apache-2.0 AND ISC AND LGPL-2.1-or-later
+
 ## workspace
   %% actual_version("2.4.2.279")
 
