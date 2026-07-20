@@ -24,7 +24,7 @@ jobs:
           pubkey: ${{ secrets.distribute_0_1_pubkey }}
           seckey: ${{ secrets.distribute_0_1_seckey }}
           options: -nosysinc
-          store: release
+          store: none
           distscript: dist/macos.u
           execution-abi: Darwin_arm64
           experimental-mlfront-ref: ${{ github.ref_type != 'tag' && 'HEAD' }}
