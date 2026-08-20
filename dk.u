@@ -16,7 +16,7 @@ wrapper scripts and rules are Diskuv-authored.
 Apache-2.0 AND ISC AND LGPL-2.1-or-later
 
 ## workspace
-  %% actual_version("2.4.2.308")
+  %% actual_version("2.4.2.329")
   'actual_version'
   '2.4.2.282'
 
