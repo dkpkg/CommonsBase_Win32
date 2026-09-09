@@ -18,175 +18,46 @@ Apache-2.0 AND ISC AND LGPL-2.1-or-later
 ## workspace
   %% actual_version("2.4.3.9")
   'actual_version'
-  '2.4.2.282'
+  '2.4.3.9'
 
   %% import { type="github-l2", repo="dkpkg/CommonsBase_Std" }
-  'import'
-  'github-l2'
-  { {
-      'CommonsBase_Std', '2.6.20260719050058', {
-        'blake2b-256:b4887b451b4450013df5c28117c1a21c3a339d5e2816c1b18165ea63d2d57ce0',
-        'sha256:41c855f506cb00226675fe47f285596105683c013898c8a17d6529c55a2e9f42',
-        'sha1:f2fcc5a02f2e8f4a68bd5c4808f3518f61c1e489'
-      } } }
+  \dk.import(type: "github-l2", library: "CommonsBase_Std",
+    version: "2.6.20260907152615",
+    checksum: (blake2b-256: "d5e12d112d6d7338b911a4df61a8eb826fcba894536bb483a6d33f5ecf6af7e0",
+      sha256: "79d7b1456fa32c026a0767c3697fd340aaec58b53f362e7a0ebdc5a418bfc95c",
+      sha1: "739e7c96b79f0cdca981e9ccfbc2511700a9fcc1"))\;
   %% import { type="github-l2", repo="dkpkg/CommonsBase_LLVM" }
-  'import'
-  'github-l2'
-  { {
-      'CommonsBase_LLVM', '0.1.20260719021059', {
-        'blake2b-256:ab9dd1f316d99aab1f17e02cc2ec2cb9b1f345eb3faf5f19829d1a6a93390ee3',
-        'sha256:862111ad69907bffb543015d237fe52670e026700e1502e855f23488afb0dc44',
-        'sha1:d2c2058826f9afe71749408731172e95369aae9b'
-      } },
-    {
-      'CommonsBase_Std', '2.6.20260718222208', {
-        'blake2b-256:d28c9e22c422e6c8ab4083eb1be597292dec46276de308106f0798633b82fc20',
-        'sha256:ec03493d6f73aa962b9df0be8ccf19be607c7cd28bb89aa2d1de3a882ad33024',
-        'sha1:c6eef19dd6c1fdd133c4e4ced6c545e08af628f4'
-      } } }
+  \dk.import(type: "github-l2", library: "CommonsBase_LLVM",
+    version: "0.1.20260907152615",
+    checksum: (blake2b-256: "3498eef1fc244c97e535d194e96d81e5e7306ae3f8096b3a976d89b2e2e771da",
+      sha256: "98061bee11818ee2944f8a0f23400a757d6365777721764c827643495283a6df",
+      sha1: "98d5c43030339140af2510e33e61ec7c60690858"))\;
   %% import { type="github-l2", repo="dkpkg/CommonsBase_GNU" }
-  'import'
-  'github-l2'
-  { {
-      'CommonsBase_GNU', '0.1.20260719171222', {
-        'blake2b-256:abf795c109059d779194c585e7b2b49582acd5e088574b4ecdc37a47738e4cae',
-        'sha256:12b6fb27bb5a1d45ee9d76217e6e96e80b529e5b73d45e97548abe88b0db6ca0',
-        'sha1:dcd6683faba0666c628ab6223a66528393c0498d'
-      } },
-    {
-      'CommonsBase_Build', '0.1.20260718232516', {
-        'blake2b-256:cb34eae2806a11382fcc8466c4b083993f34d6854fc49bb2d92f3cf05d201cc0',
-        'sha256:f48d91a5fad0af891c79d2e56d5a9d68f45677d240565099aaf8dd947af591ec',
-        'sha1:abd205268d9a7ca456f22b3425404e0f8ea06dff'
-      } },
-    {
-      'CommonsBase_FileMagic', '0.1.20260719031456', {
-        'blake2b-256:5fc9c1b7431555288fe31edcf94de1e2022c83b6010eacd9d261b6d0c806745a',
-        'sha256:06d9c857523253a0fa33e0ae72b4dba6e7ff608a37d11422d06b9f5c3df3f8db',
-        'sha1:9a593ba68f0e5742cf91068445ec4d2e964e94b5'
-      } },
-    {
-      'CommonsBase_LLVM', '0.1.20260719021059', {
-        'blake2b-256:ab9dd1f316d99aab1f17e02cc2ec2cb9b1f345eb3faf5f19829d1a6a93390ee3',
-        'sha256:862111ad69907bffb543015d237fe52670e026700e1502e855f23488afb0dc44',
-        'sha1:d2c2058826f9afe71749408731172e95369aae9b'
-      } },
-    {
-      'CommonsBase_Std', '2.6.20260718222208', {
-        'blake2b-256:d28c9e22c422e6c8ab4083eb1be597292dec46276de308106f0798633b82fc20',
-        'sha256:ec03493d6f73aa962b9df0be8ccf19be607c7cd28bb89aa2d1de3a882ad33024',
-        'sha1:c6eef19dd6c1fdd133c4e4ced6c545e08af628f4'
-      } },
-    {
-      'CommonsBase_Std', '2.6.20260719050058', {
-        'blake2b-256:b4887b451b4450013df5c28117c1a21c3a339d5e2816c1b18165ea63d2d57ce0',
-        'sha256:41c855f506cb00226675fe47f285596105683c013898c8a17d6529c55a2e9f42',
-        'sha1:f2fcc5a02f2e8f4a68bd5c4808f3518f61c1e489'
-      } } }
+  \dk.import(type: "github-l2", library: "CommonsBase_GNU",
+    version: "0.1.20260909175841",
+    checksum: (blake2b-256: "39f4642ba19b02c0b9e9355bbf51a89fbe5f8dbb1e2e0aff73f64deebca7bfa7",
+      sha256: "ba738de232fae84ab6555a0070306b23cb0a28b3b1f9dbeed6324ec1241e701d",
+      sha1: "4c42c1e32db4c417206c4650b09f90eb2735e27d"))\;
 
   %% import { type="github-l2", repo="dkpkg/NotMitEdu_Kerberos" }
-  'import'
-  'github-l2'
-  { {
-      'NotMitEdu_Kerberos', '0.1.20260719215757', {
-        'blake2b-256:16fa87793bdbf4cd1699b8e6253f6ed80a7073da85388d3dec419e3b66cd78b8',
-        'sha256:2ed8ffd2fdfa5ecf3514989213dce6833ffc428d4796519d67e8d586c5028abc',
-        'sha1:68e10bb20587e2d12d30334f6e7865afc7ee7423'
-      } },
-    {
-      'CommonsBase_Build', '0.1.20260718232516', {
-        'blake2b-256:cb34eae2806a11382fcc8466c4b083993f34d6854fc49bb2d92f3cf05d201cc0',
-        'sha256:f48d91a5fad0af891c79d2e56d5a9d68f45677d240565099aaf8dd947af591ec',
-        'sha1:abd205268d9a7ca456f22b3425404e0f8ea06dff'
-      } },
-    {
-      'CommonsBase_FileMagic', '0.1.20260719031456', {
-        'blake2b-256:5fc9c1b7431555288fe31edcf94de1e2022c83b6010eacd9d261b6d0c806745a',
-        'sha256:06d9c857523253a0fa33e0ae72b4dba6e7ff608a37d11422d06b9f5c3df3f8db',
-        'sha1:9a593ba68f0e5742cf91068445ec4d2e964e94b5'
-      } },
-    {
-      'CommonsBase_GNU', '0.1.20260719171222', {
-        'blake2b-256:abf795c109059d779194c585e7b2b49582acd5e088574b4ecdc37a47738e4cae',
-        'sha256:12b6fb27bb5a1d45ee9d76217e6e96e80b529e5b73d45e97548abe88b0db6ca0',
-        'sha1:dcd6683faba0666c628ab6223a66528393c0498d'
-      } },
-    {
-      'CommonsBase_LLVM', '0.1.20260719021059', {
-        'blake2b-256:ab9dd1f316d99aab1f17e02cc2ec2cb9b1f345eb3faf5f19829d1a6a93390ee3',
-        'sha256:862111ad69907bffb543015d237fe52670e026700e1502e855f23488afb0dc44',
-        'sha1:d2c2058826f9afe71749408731172e95369aae9b'
-      } },
-    {
-      'CommonsBase_Std', '2.6.20260718222208', {
-        'blake2b-256:d28c9e22c422e6c8ab4083eb1be597292dec46276de308106f0798633b82fc20',
-        'sha256:ec03493d6f73aa962b9df0be8ccf19be607c7cd28bb89aa2d1de3a882ad33024',
-        'sha1:c6eef19dd6c1fdd133c4e4ced6c545e08af628f4'
-      } },
-    {
-      'CommonsBase_Std', '2.6.20260719050058', {
-        'blake2b-256:b4887b451b4450013df5c28117c1a21c3a339d5e2816c1b18165ea63d2d57ce0',
-        'sha256:41c855f506cb00226675fe47f285596105683c013898c8a17d6529c55a2e9f42',
-        'sha1:f2fcc5a02f2e8f4a68bd5c4808f3518f61c1e489'
-      } } }
+  \dk.import(type: "github-l2", library: "NotMitEdu_Kerberos",
+    version: "0.1.20260909215049",
+    checksum: (blake2b-256: "7b4d6c0f31287dd50fe161be6970019f549c564dbad50d72b1a192becd4069e3",
+      sha256: "c2fa90cea60254ec18d6954db022c25e88d652272800360430eec5b9876ab018",
+      sha1: "8cf8ce6945f2a21d68818f5e38b9fb9c68883866"))\;
   %% import { type="github-l2", repo="dkpkg/NotMatveevKondratyev_Libinotify" }
-  'import'
-  'github-l2'
-  { {
-      'NotMatveevKondratyev_Libinotify', '0.1.20260719215723', {
-        'blake2b-256:474237410d48fc835e9844fae253f3226a966130c7d885b0ce9146731266185d',
-        'sha256:fb8fdd1de5dd4f6b277936e6402d44d61e3fb4855d36bf64f636d13787e49866',
-        'sha1:75e16ef4d6cfa0544f66544f46f9475693129f57'
-      } },
-    {
-      'CommonsBase_Build', '0.1.20260718232516', {
-        'blake2b-256:cb34eae2806a11382fcc8466c4b083993f34d6854fc49bb2d92f3cf05d201cc0',
-        'sha256:f48d91a5fad0af891c79d2e56d5a9d68f45677d240565099aaf8dd947af591ec',
-        'sha1:abd205268d9a7ca456f22b3425404e0f8ea06dff'
-      } },
-    {
-      'CommonsBase_FileMagic', '0.1.20260719031456', {
-        'blake2b-256:5fc9c1b7431555288fe31edcf94de1e2022c83b6010eacd9d261b6d0c806745a',
-        'sha256:06d9c857523253a0fa33e0ae72b4dba6e7ff608a37d11422d06b9f5c3df3f8db',
-        'sha1:9a593ba68f0e5742cf91068445ec4d2e964e94b5'
-      } },
-    {
-      'CommonsBase_GNU', '0.1.20260719171222', {
-        'blake2b-256:abf795c109059d779194c585e7b2b49582acd5e088574b4ecdc37a47738e4cae',
-        'sha256:12b6fb27bb5a1d45ee9d76217e6e96e80b529e5b73d45e97548abe88b0db6ca0',
-        'sha1:dcd6683faba0666c628ab6223a66528393c0498d'
-      } },
-    {
-      'CommonsBase_LLVM', '0.1.20260719021059', {
-        'blake2b-256:ab9dd1f316d99aab1f17e02cc2ec2cb9b1f345eb3faf5f19829d1a6a93390ee3',
-        'sha256:862111ad69907bffb543015d237fe52670e026700e1502e855f23488afb0dc44',
-        'sha1:d2c2058826f9afe71749408731172e95369aae9b'
-      } },
-    {
-      'CommonsBase_Std', '2.6.20260718222208', {
-        'blake2b-256:d28c9e22c422e6c8ab4083eb1be597292dec46276de308106f0798633b82fc20',
-        'sha256:ec03493d6f73aa962b9df0be8ccf19be607c7cd28bb89aa2d1de3a882ad33024',
-        'sha1:c6eef19dd6c1fdd133c4e4ced6c545e08af628f4'
-      } },
-    {
-      'CommonsBase_Std', '2.6.20260719050058', {
-        'blake2b-256:b4887b451b4450013df5c28117c1a21c3a339d5e2816c1b18165ea63d2d57ce0',
-        'sha256:41c855f506cb00226675fe47f285596105683c013898c8a17d6529c55a2e9f42',
-        'sha1:f2fcc5a02f2e8f4a68bd5c4808f3518f61c1e489'
-      } } }
+  \dk.import(type: "github-l2", library: "NotMatveevKondratyev_Libinotify",
+    version: "0.1.20260909201008",
+    checksum: (blake2b-256: "04112d33e934b7d7298efa5c1cbce85363a46d42cabd771416a47da716c5cb6a",
+      sha256: "5fcdb9dd69fe350d222d762da1e71f7a90ee48be55c77267266a1db92eb9bf58",
+      sha1: "281b3e56af819156096b443a24fb4a47e8d68822"))\;
 
 
 ### CommonsBase_Win32.Apparatus@1.0.0
 
   % unified.asset { name="Scripts", dir="assets/s" }
-  'asset'
-  '5043'
-  { 'sha256:1bd86fbf13d569013d29dc0c2a03f8c16a3f73d1db593bc0b300939ebca35522' }
+  \dk.asset(byteSize: "5043", checksum: (sha256: "1bd86fbf13d569013d29dc0c2a03f8c16a3f73d1db593bc0b300939ebca35522"))\;
   % unified.asset { name="WineSlotTable", dir="assets/table/wine-slot" }
-  'asset'
-  '2240'
-  { 'sha256:6463e5dcbd69b743efe8a6d25736e33f1c8b72f21f7ea5fb13dd33c8e5614212' }
+  \dk.asset(byteSize: "2240", checksum: (sha256: "6463e5dcbd69b743efe8a6d25736e33f1c8b72f21f7ea5fb13dd33c8e5614212"))\;
   % unified.asset { name="WineRunLibSlotTable", dir="assets/table/winerunlib-slot" }
-  'asset'
-  '1909'
-  { 'sha256:873d8e9fa4aa2cafe88358858b6e912b2556a1c06c90cc2074829559f0155b4f' }
+  \dk.asset(byteSize: "1909", checksum: (sha256: "873d8e9fa4aa2cafe88358858b6e912b2556a1c06c90cc2074829559f0155b4f"))\;
